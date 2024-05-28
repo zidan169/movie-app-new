@@ -43,29 +43,18 @@
                 </div>
 
                 @foreach ($genres as $genre)
-                <div  class="w-12 ml-2 rounded-md">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            {{ $genre['id'] }}
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-1 flex items-center">
-                        <p class="src/images/movie/{{$genre ['poster']}}">
-                        </p>
-                    </div>
+                <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
+               
+                
                     <div class="col-span-2 flex items-center">
                         <p class="text-sm font-medium text-black dark:text-white">
-                            {{ $genre['title'] }}
+                            {{ $genre->name}}
                         </p>
                     </div>
-                    <div class="col-span-1 items-center sm:flex">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            {{ $genre['genre'] }}
-                        </p>
-                    </div>
+                   
                     <div class="col-span-3 flex items-center">
                         <p class="text-sm font-medium text-black dark:text-white">
-                            {{ $genre['synopsis'] }}
+                            {{ $genre->description }}
                         </p>
                     </div>
                     <div class="col-span-1 flex items-center">
