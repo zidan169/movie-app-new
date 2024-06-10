@@ -35,4 +35,24 @@ public function destroy(Genre $genres)
     $genres->delete();
     return redirect('/genres')->with('success', 'Movie deleted successfully!');
 }
+
+public function update(Request $request, Genre $genre)
+{
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        
+    ]);
+
+    $genre->update($validatedData);
+
+    return redirect('/genres')->with('success', 'Movie updated successfully!');
+}
+
+public function edit(Genre $genre)
+{
+    
+    return view('genres.edit', compact('genre',));
+}
+
 }

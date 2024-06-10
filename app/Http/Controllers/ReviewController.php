@@ -37,4 +37,25 @@ public function destroy(Review $reviews)
     $reviews->delete();
     return redirect('/review')->with('success', 'Movie deleted successfully!');
 }
+
+public function update(Request $request, Review $review)
+{
+    $validatedData = $request->validate([
+        'movie_id' => 'required',
+        'user' => 'required',
+        'rating' => 'required',
+        'date' => 'required',
+    ]);
+
+    $review->update($validatedData);
+
+    return redirect('/reviews')->with('success', 'Movie updated successfully!');
+}
+
+public function edit(Review $review)
+{
+    $movies = Movie::all();
+    return view('reviews.edit', compact('movies', 'review'));
+}
+
 }
